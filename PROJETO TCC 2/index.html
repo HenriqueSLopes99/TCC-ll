@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dispenser Automático de Medicamentos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      #container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="time"] {
+        padding: 8px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 8px 16px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .delete-button {
+        background-color: #ff5555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .delete-button:hover {
+        background-color: #ff3333;
+      }
+
+      #error-message {
+        margin-top: 5px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div id="container" style="text-align: center">
+      <h1>TCC Henrique Lopes</h1>
+      <h2>Dispenser Automático de Medicamentos</h2>
+      <form id="schedule-form">
+        <label for="medication-day">Selecione o dia da semana:</label>
+        <select id="medication-day" name="medication-day">
+          <option disabled selected value> --- </option>
+          <option value="domingo">Domingo</option>
+          <option value="segunda">Segunda-feira</option>
+          <option value="terca">Terça-feira</option>
+          <option value="quarta">Quarta-feira</option>
+          <option value="quinta">Quinta-feira</option>
+          <option value="sexta">Sexta-feira</option>
+          <option value="sabado">Sábado</option>
+        </select>
+        <label for="medication-time">Selecione o horário:</label>
+        <input type="time" id="medication-time" name="medication-time" />
+        <p id="error-message" style="color: red; display: none">
+          Horário inválido. Por favor, insira um horário válido.
+        </p>
+        <button type="button" id="add-time">Adicionar Horário</button>
+        <button type="button" id="clear-time" class="delete-button">
+          Limpar Horário
+        </button>
+        <button type="button" id="clear-all" class="delete-button">
+          Limpar Todos
+        </button>
+      </form>
+      <h2>Horários Selecionados:</h2>
+      <ul id="selected-times">
+        <!-- Horários selecionados serão exibidos aqui -->
+      </ul>
+      <button type="button" id="start-button">Iniciar</button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const addTimeButton = document.getElementById("add-time");
+        const clearTimeButton = document.getElementById("clear-time");
+        const clearAllButton = document.getElementById("clear-all");
+        const startButton = document.getElementById("start-button");
+        const selectedTimesList = document.getElementById("selected-times");
+        const errorMessage = document.getElementById("error-message");
+        const daySelect = document.getElementById("medication-day");
+        const timeInput = document.getElementById("medication-time");
+        const existingDays = [];
+
+        const options = {
+          clientId: "dispenser-front",
+          host: "localhost",
+          port: 1884,
+          protocol: "mqtt",
+        };
+        const topics = [];
+        const client = new Paho.MQTT.Client(
+          options.host,
+          Number(options.port),
+          options.clientId
+        );
+
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+        client.connect({
+          onSuccess: onConnect,
+        });
+
+        function onConnectionLost(responseObject) {
+          console.log(responseObject);
+        }
+        function onMessageArrived(message) {
+          updateChart(message.payloadString);
+          // console.log("OnMessageArrived: "+ message.payloadString);
+        }
+
+        function onConnect() {
+          console.log("Conectado ao servidor MQTT");
+
+          for (let i = 0; i < topics.length; i++) {
+            client.subscribe(topics[i]);
+          }
+        }
+
+        function sendMqtt(topic, message) {
+          client.send(topic, message);
+        }
+
+        daySelect.addEventListener("change", () => {
+          // manda mensagem vazia para o dispenser mover para a posição correta
+          sendMqtt(daySelect.value, "vazio");
+        });
+
+        timeInput.addEventListener("change", function () {
+          const selectedTime = timeInput.value;
+          if (isValidTime(selectedTime)) {
+            errorMessage.style.display = "none";
+            addTimeButton.removeAttribute("disabled");
+          } else {
+            errorMessage.style.display = "block";
+            addTimeButton.setAttribute("disabled", "disabled");
+          }
+        });
+
+        function askMedicationConfirmation(selectedDay, selectedTime) {
+          const confirmation = confirm(
+            `Você colocou o medicamento no dispenser para ${selectedDay} às ${selectedTime}?`
+          );
+          return confirmation;
+        }
+
+        function addTime() {
+          const selectedDay = daySelect.value;
+          const selectedTime = timeInput.value;
+
+          if (existingDays.includes(selectedDay)) {
+            alert("Esse dia da semana já foi selecionado.");
+            return;
+          }
+
+          const existingTimes = selectedTimesList.querySelectorAll("li");
+          for (const timeItem of existingTimes) {
+            const [day, time] = timeItem.textContent.split(": ");
+            if (day === selectedDay && time === selectedTime) {
+              alert("Esse horário já foi adicionado.");
+              return;
+            }
+          }
+
+          if (isValidTime(selectedTime)) {
+            if (askMedicationConfirmation(selectedDay, selectedTime)) {
+              sendMqtt(selectedDay, selectedTime); // Envia o horário para o dispenser
+              sendMqtt("dia_vazio", "vazio"); // reseta posição do dispenser
+
+              existingDays.push(selectedDay);
+              const listItem = document.createElement("li");
+              listItem.textContent = `${selectedDay}: ${selectedTime}`;
+
+              const deleteButton = document.createElement("button");
+              deleteButton.textContent = "Excluir";
+              deleteButton.className = "delete-button";
+              deleteButton.addEventListener("click", function () {
+                sendMqtt("excluir", selectedDay);
+                if (confirm("Já retirou o medicamento do dispenser?")) {
+                  sendMqtt("dia_vazio", "vazio");
+                  selectedTimesList.removeChild(listItem);
+                  existingDays.splice(existingDays.indexOf(selectedDay), 1);
+                }
+              });
+
+              listItem.appendChild(deleteButton);
+              selectedTimesList.appendChild(listItem);
+
+              // Ordenar a lista de horários por dia da semana
+              const items = Array.from(selectedTimesList.children);
+              items.sort((a, b) => {
+                const daysOfWeek = [
+                  "domingo",
+                  "segunda",
+                  "terca",
+                  "quarta",
+                  "quinta",
+                  "sexta",
+                  "sabado",
+                ];
+                const dayA = a.textContent.split(": ")[0];
+                const dayB = b.textContent.split(": ")[0];
+                return daysOfWeek.indexOf(dayA) - daysOfWeek.indexOf(dayB);
+              });
+
+              selectedTimesList.innerHTML = "";
+              items.forEach((item) => selectedTimesList.appendChild(item));
+
+              timeInput.value = "";
+              errorMessage.style.display = "none";
+              addTimeButton.setAttribute("disabled", "disabled");
+            } else {
+              alert(
+                "Insira o medicamento no dispenser antes de adicionar o horário."
+              );
+            }
+          }
+        }
+
+        addTimeButton.addEventListener("click", addTime);
+
+        clearTimeButton.addEventListener("click", function () {
+          timeInput.value = "";
+          errorMessage.style.display = "none";
+          addTimeButton.setAttribute("disabled", "disabled");
+        });
+
+        clearAllButton.addEventListener("click", function () {
+          if (confirm("Tem certeza que deseja limpar todos os horários?")) {
+            sendMqtt("excluir_tudo", "excluirtudo");
+            selectedTimesList.innerHTML = "";
+            existingDays.length = 0;
+          }
+        });
+
+        startButton.addEventListener("click", function () {
+          if (existingDays.length === 7) {
+            sendMqtt("iniciar", "iniciar");
+            alert("Iniciando o funcionamento do dispenser.");
+          } else {
+            alert("Por favor, cadastre todos os horários antes de iniciar.");
+          }
+        });
+
+        function isValidTime(time) {
+          const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+          return timeRegex.test(time);
+        }
+      });
+    </script>
+  </body>
+</html>

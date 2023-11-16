@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4f+zXtoop7HoOzPKm7Vvm2qLRQ0fSB2ZbxWuNZ6akkVh86eVkznwPEiysQ+77XszgU+v+tLKSyC4uz5tx5Lpcw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hslop\\OneDrive\\Área de Trabalho\\TCC ATUALIZADO\\PROJETO TCC 2\\backdispenser\\backdispenser\\backdispenser.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hslop\\.nuget\\packages\\mqttnet\\4.3.1.873\\mqttnet.4.3.1.873.nupkg.sha512",
+    "C:\\Users\\hslop\\.nuget\\packages\\mqttnet.aspnetcore\\4.3.1.873\\mqttnet.aspnetcore.4.3.1.873.nupkg.sha512"
+  ],
+  "logs": []
+}

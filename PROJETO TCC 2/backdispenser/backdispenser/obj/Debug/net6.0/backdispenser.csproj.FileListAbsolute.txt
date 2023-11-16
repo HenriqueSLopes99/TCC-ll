@@ -1,0 +1,54 @@
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.exe
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.deps.json
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.runtimeconfig.json
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.dll
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.AspNetCore.dll
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.AssemblyReference.cache
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfoInputs.cache
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfo.cs
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CoreCompileInputs.cache
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CopyComplete
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\refint\backdispenser.dll
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.genruntimeconfig.cache
+C:\Users\hslop\Downloads\back tcc atualizado\backdispenser\backdispenser\obj\Debug\net6.0\ref\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.exe
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.deps.json
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.runtimeconfig.json
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.AspNetCore.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.AssemblyReference.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfoInputs.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfo.cs
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CoreCompileInputs.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CopyComplete
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\refint\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.genruntimeconfig.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\ref\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.exe
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.deps.json
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.runtimeconfig.json
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\bin\Debug\net6.0\MQTTnet.AspNetCore.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.AssemblyReference.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfoInputs.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.AssemblyInfo.cs
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CoreCompileInputs.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.csproj.CopyComplete
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\refint\backdispenser.dll
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.pdb
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\backdispenser.genruntimeconfig.cache
+C:\Users\hslop\OneDrive\Área de Trabalho\TCC ATUALIZADO\PROJETO TCC 2\backdispenser\backdispenser\obj\Debug\net6.0\ref\backdispenser.dll
